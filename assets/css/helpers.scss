@@ -1,0 +1,54 @@
+.--flex-col{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.--flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.appearLeft-enter-active{
+  animation: appearLeft 1s;
+}
+.appearRight-enter-active{
+    animation: appearRight 1s;
+}
+.appearBottom-enter-active{
+    animation: appearBottom 1s ease-out;
+}
+.grow-enter-active{
+    animation: grow .5s ease-out;
+}
+.fade-enter-active{
+  animation: fade .5s ease-out;
+}
+.fade-leave-active{
+  animation: fade .5s ease-out reverse;
+}
+
+@keyframes appearLeft {
+  0%{transform: translateX(-250px); opacity: 0;}
+  100%{transform: translateX(0px); opacity: 1;}
+}
+@keyframes appearRight {
+    0%{transform: translateX(250px); opacity: 0;}
+    100%{transform: translateX(0px); opacity: 1;}
+  }
+@keyframes appearBottom {
+  0%{transform: translateY(100%);}
+  100%{transform: translateY(0px);}  
+}
+@keyframes grow {
+  0%{transform: scale(0);}
+  95%{transform: scale(1.05);}
+  100%{transform: scale(1);}  
+}
+@keyframes fade {
+  0%{opacity: 0; transform: skew(0deg,0deg) scale(0);}
+  50%{opacity: .2; transform: skew(60deg,60deg) scale(.15);}
+  100%{opacity: 1; transform: skew(0deg,0deg) scale(1);}
+  
+}

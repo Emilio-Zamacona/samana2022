@@ -1,0 +1,18 @@
+/* @font-face {
+  font-family: "Lora";
+  src: local("Lora"),
+  url('@/assets/fonts/Lora-VariableFont_wght.ttf');
+}
+ */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+body{
+  margin: 0;
+  overflow-x: hidden;
+  background-color: $color1;
+}
+html{
+  background: $color1;
+  scroll-behavior: smooth;
+}

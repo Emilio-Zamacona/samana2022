@@ -1,0 +1,61 @@
+@mixin respond ($breakpoint) {
+  @if $breakpoint==big{
+    @media only screen and (min-width:1025px){
+      @content;
+    }
+  }
+  @if $breakpoint==laptop {
+    @media only screen and (max-width: 1024px) {
+      @content;
+    }
+  }
+  @if $breakpoint==tablet {
+    @media only screen and (max-width: 768px) {
+      @content;
+    }
+  }
+  @if $breakpoint==mobile {
+    @media only screen and (max-width: 480px) {
+      @content;
+    }
+  }
+  @if $breakpoint==smallest {
+    @media only screen and (max-height: 480px) {
+      @content;
+    }
+  }
+}
+@mixin biggerThan ($breakpoint) {
+  @if $breakpoint==laptop {
+    @media only screen and (min-width: 1024px) {
+      @content;
+    }
+  }
+  @if $breakpoint==tablet {
+    @media only screen and (min-width: 768px) {
+      @content;
+    }
+  }
+  @if $breakpoint==mobile {
+    @media only screen and (min-width: 480px) {
+      @content;
+    }
+  }
+  @if $breakpoint==smallest {
+    @media only screen and (min-height: 480px) {
+      @content;
+    }
+  }
+}
+
+@mixin landscape (){
+  @media screen and(orientation:landscape){
+    @content;
+  }
+}
+
+@mixin portrait (){
+  @media screen and(orientation:portrait){
+    @content 
+  }
+}
