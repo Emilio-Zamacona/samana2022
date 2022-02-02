@@ -1,24 +1,38 @@
 <template>
-  <section>
-    <NavBar />
+  <section class="main">
+    <HeroMain />
+    <BodyMain />
+    <FrequentlyAsked />
+    <ContactMain />
   </section>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
   name: 'IndexPage',
   data () {
-    return {}
+    return {
+      storeLoad: ''
+    }
   },
-  mounted () {
+  computed: {
+    ...mapGetters(['allProducts'])
   },
-  destroyed () {
-
-  },
-  methods: {}
+  async mounted () {
+    try {
+      const response = await this.$strapi.$products.find()
+      this.$store.commit('setProducts', response.data)
+    } catch (e) {
+      console.log(e)
+    }
+  }
 
 }
 </script>
 <style lang="scss">
+.main{
+
+}
 
 </style>

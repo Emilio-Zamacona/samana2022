@@ -1,18 +1,29 @@
+
 /* @font-face {
   font-family: "Lora";
   src: local("Lora"),
   url('@/assets/fonts/Lora-VariableFont_wght.ttf');
-}
- */
+} */
+
 *, *:before, *:after {
   box-sizing: border-box;
+}
+ul{
+  list-style: none;
+}
+li{
+  cursor: pointer;
 }
 body{
   margin: 0;
   overflow-x: hidden;
-  background-color: $color1;
+  font-family: 'Manjari', sans-serif;
 }
 html{
-  background: $color1;
+
   scroll-behavior: smooth;
 }
+a, a:link, a:visited, a:focus, a:hover, a:active{
+  text-decoration:none; 
+}
+

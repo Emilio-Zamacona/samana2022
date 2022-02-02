@@ -17,15 +17,18 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {rel:'stylesheet', href:"https://fonts.googleapis.com/css2?family=Manjari&display=swap"},
+      {href:"https://fonts.googleapis.com/css2?family=Allura&display=swap", rel:"stylesheet"}
     ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['@/assets/css/colors.scss',
+  css: [
+  '@/assets/css/colors.scss',
   '@/assets/css/resets.scss',
   '@/assets/css/helpers.scss',
-  'normalize.css',
+  '@/assets/css/normalize.css',
   '@/assets/css/mixins.scss',
   '@/assets/css/swiper.css'
   ],
@@ -34,7 +37,9 @@ export default {
   plugins: [
     '@/plugins/vue-awesome-swiper.js',
     '@/plugins/vue-fontawesome.js',
-    '@/plugins/vue-observe-visibility.js'
+    '@/plugins/vue-observe-visibility.js',
+    '@/plugins/global.js',
+
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -42,6 +47,7 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    '@nuxt/postcss8',
     ['@nuxtjs/eslint-module'],
     ['nuxt-fontawesome', {
       component: 'fa', //customize component name
@@ -63,13 +69,35 @@ export default {
   modules: [
     '@nuxtjs/style-resources',
     '@nuxtjs/axios',
+    '@nuxtjs/strapi',
   ],
+  strapi: {
+    url: process.env.STRAPI_URL || 'http://localhost:1337/api',
+    entities: ['products', 'orders', 'subscribers'],
+  },
+  env: {
+    STRAPI_URL: `http://localhost:1337/api`,
+  },
   styleResources: {
     scss: ['./assets/css/*.scss']
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    extend(config, ctx) {
+      if (ctx.dev && ctx.isClient) {
+        config.module.rules.push({
+          enforce: 'pre',
+          test: /\.(js|vue)$/,
+          loader: 'eslint-loader',
+          exclude: /(node_modules)/,
+        })
+      }
+    },
+    /*
+     ** Add vue-swal
+     */
+    vendor: ['vue-swal']
   },
   ssr: true,
   target: 'static',

@@ -1,5 +1,32 @@
 {
+  "BodyMain": {
+    "description": "Auto imported from components/BodyMain.vue"
+  },
+  "CardInfo": {
+    "description": "Auto imported from components/CardInfo.vue"
+  },
+  "ContactMain": {
+    "description": "Auto imported from components/ContactMain.vue"
+  },
+  "FrequentlyAsked": {
+    "description": "Auto imported from components/FrequentlyAsked.vue"
+  },
+  "HeroMain": {
+    "description": "Auto imported from components/HeroMain.vue"
+  },
+  "InfoBody": {
+    "description": "Auto imported from components/InfoBody.vue"
+  },
   "NavBar": {
     "description": "Auto imported from components/NavBar.vue"
+  },
+  "ProductCard": {
+    "description": "Auto imported from components/ProductCard.vue"
+  },
+  "QuestionFaq": {
+    "description": "Auto imported from components/QuestionFaq.vue"
+  },
+  "ShopSection": {
+    "description": "Auto imported from components/ShopSection.vue"
   }
 }

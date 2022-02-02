@@ -14,13 +14,13 @@ import '..\\assets\\css\\resets.scss'
 
 import '..\\assets\\css\\helpers.scss'
 
-import '..\\node_modules\\normalize.css\\normalize.css'
+import '..\\assets\\css\\normalize.css'
 
 import '..\\assets\\css\\mixins.scss'
 
 import '..\\assets\\css\\swiper.css'
 
-import _6f6c098b from './layouts/default.vue'
+import _6f6c098b from '..\\layouts\\default.vue'
 
 const layouts = { "_default": sanitizeComponent(_6f6c098b) }
 

@@ -13,14 +13,23 @@
 .appearLeft-enter-active{
   animation: appearLeft 1s;
 }
+.appearLeft-leave-active{
+  animation: appearLeft 1s reverse;
+}
 .appearRight-enter-active{
     animation: appearRight 1s;
 }
 .appearBottom-enter-active{
     animation: appearBottom 1s ease-out;
 }
+.appearBottom-leave-active{
+  animation: appearBottom 1s ease-out reverse;
+}
 .grow-enter-active{
     animation: grow .5s ease-out;
+}
+.grow-leave-active{
+  animation: grow .5s ease-out reverse;
 }
 .fade-enter-active{
   animation: fade .5s ease-out;
@@ -28,6 +37,7 @@
 .fade-leave-active{
   animation: fade .5s ease-out reverse;
 }
+
 
 @keyframes appearLeft {
   0%{transform: translateX(-250px); opacity: 0;}
@@ -47,8 +57,7 @@
   100%{transform: scale(1);}  
 }
 @keyframes fade {
-  0%{opacity: 0; transform: skew(0deg,0deg) scale(0);}
-  50%{opacity: .2; transform: skew(60deg,60deg) scale(.15);}
-  100%{opacity: 1; transform: skew(0deg,0deg) scale(1);}
+  0%{opacity: 0; transform: translateY(15px);}
+  100%{opacity: 1; transform: translateY(0px);}
   
 }

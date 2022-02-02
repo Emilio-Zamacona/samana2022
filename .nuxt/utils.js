@@ -196,11 +196,11 @@ export async function setContext (app, context) {
       isDev: true,
       isHMR: false,
       app,
-
+      store: app.store,
       payload: context.payload,
       error: context.error,
       base: app.router.options.base,
-      env: {}
+      env: {"STRAPI_URL":"http://localhost:1337/api"}
     }
     // Only set once
 
