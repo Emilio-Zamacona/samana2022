@@ -20,6 +20,9 @@
   "NavBar": {
     "description": "Auto imported from components/NavBar.vue"
   },
+  "PaymentForm": {
+    "description": "Auto imported from components/PaymentForm.vue"
+  },
   "ProductCard": {
     "description": "Auto imported from components/ProductCard.vue"
   },

@@ -3,7 +3,12 @@ export default {
   head: {
     script: [
       {
-        body:true
+
+        src: 'https://sdk.mercadopago.com/js/v2',
+        type: 'text/javascript',
+        async: true,
+        body: true,
+
       }
     ],
     title: 'Samana Cosmética Natural',
@@ -38,7 +43,7 @@ export default {
     '@/plugins/vue-awesome-swiper.js',
     '@/plugins/vue-fontawesome.js',
     '@/plugins/vue-observe-visibility.js',
-    '@/plugins/global.js',
+    '@/plugins/global.js'
 
   ],
 
@@ -70,7 +75,12 @@ export default {
     '@nuxtjs/style-resources',
     '@nuxtjs/axios',
     '@nuxtjs/strapi',
+
+    
   ],
+  mercadopago: {
+    public_key: 'TEST-5a21df55-663b-4458-877b-d5854279d347'
+  },
   strapi: {
     url: process.env.STRAPI_URL || 'http://localhost:1337/api',
     entities: ['products', 'orders', 'subscribers'],
@@ -93,6 +103,13 @@ export default {
           exclude: /(node_modules)/,
         })
       }
+    },
+    extend:function (config, {isDev, isClient}) {
+
+      config.node = {
+
+          fs: "empty"
+      };
     },
     /*
      ** Add vue-swal

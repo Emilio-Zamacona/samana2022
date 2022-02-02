@@ -1,5 +1,6 @@
 <template>
   <section class="contact --flex --fixed-on-top">
+    <img class="contact__img" src="../assets/img/leaves4.png" alt="">
     <div id="contact-form" class="contact__form-container --flex-col">
       <h1 class="contact__form-container__title">
         Contacto
@@ -94,7 +95,17 @@ button{
   color:$color2;
   background: $color1;
   letter-spacing: 5px;
+  position: relative;
+  &__img{
+    height: 400px;
+    @include respond(mobile){
+      position: absolute;
+      top: 0;
+      left: 0;
+      filter: opacity(.2);
 
+    }
+  }
   &__form-container{
     &__title{
       font-size: 2rem;
@@ -115,7 +126,7 @@ button{
           width: 320px;
           resize: none;
           transition: .5s;
-          background:$color1;
+          background-color:transparent;
           border: none;
           border-bottom: 1px solid $color2;
           &:focus{

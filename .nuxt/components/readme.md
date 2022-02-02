@@ -13,6 +13,7 @@ You can directly use them in pages and other components without the need to impo
 - `<HeroMain>` | `<hero-main>` (components/HeroMain.vue)
 - `<InfoBody>` | `<info-body>` (components/InfoBody.vue)
 - `<NavBar>` | `<nav-bar>` (components/NavBar.vue)
+- `<PaymentForm>` | `<payment-form>` (components/PaymentForm.vue)
 - `<ProductCard>` | `<product-card>` (components/ProductCard.vue)
 - `<QuestionFaq>` | `<question-faq>` (components/QuestionFaq.vue)
 - `<ShopSection>` | `<shop-section>` (components/ShopSection.vue)

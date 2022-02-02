@@ -5,6 +5,7 @@ export { default as FrequentlyAsked } from '../..\\components\\FrequentlyAsked.v
 export { default as HeroMain } from '../..\\components\\HeroMain.vue'
 export { default as InfoBody } from '../..\\components\\InfoBody.vue'
 export { default as NavBar } from '../..\\components\\NavBar.vue'
+export { default as PaymentForm } from '../..\\components\\PaymentForm.vue'
 export { default as ProductCard } from '../..\\components\\ProductCard.vue'
 export { default as QuestionFaq } from '../..\\components\\QuestionFaq.vue'
 export { default as ShopSection } from '../..\\components\\ShopSection.vue'

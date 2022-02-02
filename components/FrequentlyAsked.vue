@@ -1,5 +1,6 @@
 <template>
   <div class="faq">
+    <img class="faq__background" src="../assets/img/leaves3.png" alt="">
     <p class="faq__title">
       Preguntas Frecuentes
     </p>
@@ -56,7 +57,15 @@ export default {
 .faq{
   background: $color2;
   padding: 3rem;
-
+  position: relative;
+  &__background{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    max-height: 400px;
+    filter: opacity(.2);
+  }
   &__title{
     font-size: 2rem;
     color: $color3;

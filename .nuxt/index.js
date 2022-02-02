@@ -91,7 +91,7 @@ async function createApp(ssrContext, config = {}) {
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"script":[{"body":true}],"title":"Samana Cosmética Natural","htmlAttrs":{"lang":"en"},"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":""},{"name":"format-detection","content":"telephone=no"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss2?family=Manjari&display=swap"},{"href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss2?family=Allura&display=swap","rel":"stylesheet"}],"style":[]},
+    head: {"script":[{"src":"https:\u002F\u002Fsdk.mercadopago.com\u002Fjs\u002Fv2","type":"text\u002Fjavascript","async":true,"body":true}],"title":"Samana Cosmética Natural","htmlAttrs":{"lang":"en"},"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":""},{"name":"format-detection","content":"telephone=no"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss2?family=Manjari&display=swap"},{"href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss2?family=Allura&display=swap","rel":"stylesheet"}],"style":[]},
 
     store,
     router,
