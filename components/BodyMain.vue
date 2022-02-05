@@ -8,7 +8,7 @@
           threshold: 1
         },
       }"
-      class="body__title"
+      class="body__title --title"
       :class="{'--subline':isTitleShown}"
     >
       Nosotras
@@ -96,7 +96,6 @@ export default {
     padding: 2rem;
   }
   &__title{
-    font-size: 2rem;
     transition: 1s;
   }
   &__intro{
@@ -120,6 +119,9 @@ export default {
       min-width: 350px;
       @include respond(laptop){
         font-size: 1rem;
+      }
+      @include respond(mobile){
+        min-width: 300px;
       }
       &__deco{
         height: 200px;

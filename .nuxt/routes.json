@@ -3,14 +3,12 @@
     "name": "shop",
     "path": "/shop",
     "component": "C:\\\\Github\\\\samana2022\\\\frontend\\\\pages\\\\shop.vue",
-    "chunkName": "pages/shop",
-    "_name": "_1ce9eb3d"
+    "chunkName": "pages/shop"
   },
   {
     "name": "index",
     "path": "/",
     "component": "C:\\\\Github\\\\samana2022\\\\frontend\\\\pages\\\\index.vue",
-    "chunkName": "pages/index",
-    "_name": "_5f9320ca"
+    "chunkName": "pages/index"
   }
 ]

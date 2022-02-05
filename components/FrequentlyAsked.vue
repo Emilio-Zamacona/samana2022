@@ -1,7 +1,7 @@
 <template>
   <div class="faq">
     <img class="faq__background" src="../assets/img/leaves3.png" alt="">
-    <p class="faq__title">
+    <p class="faq__title --title">
       Preguntas Frecuentes
     </p>
     <QuestionFaq v-for="question in questions" :key="question.ask" :question="question" />
@@ -58,6 +58,7 @@ export default {
   background: $color2;
   padding: 3rem;
   position: relative;
+
   &__background{
     position: absolute;
     top: 0;
@@ -65,9 +66,21 @@ export default {
     height: 100%;
     max-height: 400px;
     filter: opacity(.2);
+    pointer-events: none;
+    @include respond(tablet){
+      top: 0;
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+      width: auto;
+
+    }
+
   }
   &__title{
-    font-size: 2rem;
+
     color: $color3;
   }
 }

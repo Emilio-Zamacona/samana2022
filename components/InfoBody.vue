@@ -1,5 +1,7 @@
 <template>
   <div class="info --flex-col">
+    <div class="info__divisor --line1"></div>
+
     <p
       v-observe-visibility="{
         callback: animateInfo,
@@ -8,11 +10,12 @@
           threshold: 0.1
         },
       }"
-      class="info__title"
+      class="info__title --title"
     >
       Cósmetica <span ref="natural">Natural, </span><span ref="vegana">Vegana </span><span ref="ecologica">y Ecológica
       </span>
     </p>
+    <div class="info__divisor --line2"></div>
     <div class="info__cards">
       <CardInfo v-for="card in cards" :key="card.name" :info="card" />
     </div>
@@ -52,18 +55,46 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.--line1{
+  width: 85%;
+  position: relative;
+  &::before{
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -40px;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: $color3;
+  }
+}
+.--line2{width: 75%;}
 .info{
   display: flex;
   justify-content: center;
-
   width: 100%;
   min-height: 100vh;
-
+  &__divisor{
+    background: $color3;
+    height: 2px;
+    margin: 1rem;
+  }
   &__title{
     font-size: 2rem;
+    @include respond(tablet){
+      font-size: 1.75rem;
+    }
+    @include respond(mobile){
+      font-size: 1.5rem;
+    }
+
   }
   &__cards{
     display: flex;
+    @include respond(tablet){
+      flex-direction: column;
+    }
   }
 }
 </style>

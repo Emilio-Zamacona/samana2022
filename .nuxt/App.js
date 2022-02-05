@@ -16,8 +16,6 @@ import '..\\assets\\css\\helpers.scss'
 
 import '..\\assets\\css\\normalize.css'
 
-import '..\\assets\\css\\mixins.scss'
-
 import '..\\assets\\css\\swiper.css'
 
 import _6f6c098b from '..\\layouts\\default.vue'

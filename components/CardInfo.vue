@@ -29,13 +29,19 @@ export default {
 
 <style lang="scss" scoped>
 .card{
-    width: 320px;
-    margin: 1rem;
+    width: 270px;
+    margin: 2rem;
+    line-height: 20px;
+    @include respond(laptop){
+      font-size: .75rem;
+      width: 230px;
+      margin: .5rem;
+      line-height: 20px;
+    }
   &__text{
       background: $color4;
       color: $color1;
       padding: 1rem;
-      margin: 1rem;
       height: 300px;
       border-radius: 15px;
 
@@ -47,6 +53,9 @@ export default {
 
   &__img{
     width: 80px;
+    @include respond(laptop){
+      width: 60px;
+    }
   }
 
 }

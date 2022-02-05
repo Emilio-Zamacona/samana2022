@@ -98,10 +98,13 @@ button{
   position: relative;
   &__img{
     height: 400px;
-    @include respond(mobile){
-      position: absolute;
+    @include respond(tablet){
       top: 0;
+      position: absolute;
       left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
       filter: opacity(.2);
 
     }

@@ -37,7 +37,7 @@ export default {
   position: sticky;
   top: 0;
   background: $color1;
-  width: 100%  ;
+  width: 100vw;
   padding: 1rem;
   color: $color4;
   display: flex;

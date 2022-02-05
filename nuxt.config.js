@@ -30,11 +30,11 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+  
   '@/assets/css/colors.scss',
   '@/assets/css/resets.scss',
   '@/assets/css/helpers.scss',
   '@/assets/css/normalize.css',
-  '@/assets/css/mixins.scss',
   '@/assets/css/swiper.css'
   ],
 
