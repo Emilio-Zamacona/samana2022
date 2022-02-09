@@ -2,13 +2,13 @@
   {
     "name": "shop",
     "path": "/shop",
-    "component": "C:\\\\Github\\\\samana2022\\\\frontend\\\\pages\\\\shop.vue",
+    "component": "E:\\\\GitHub\\\\samana2022\\\\frontend\\\\pages\\\\shop.vue",
     "chunkName": "pages/shop"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "C:\\\\Github\\\\samana2022\\\\frontend\\\\pages\\\\index.vue",
+    "component": "E:\\\\GitHub\\\\samana2022\\\\frontend\\\\pages\\\\index.vue",
     "chunkName": "pages/index"
   }
 ]

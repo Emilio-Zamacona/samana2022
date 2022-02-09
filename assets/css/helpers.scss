@@ -19,14 +19,38 @@
   margin-right: auto;
 }
 .--title{
-  font-size: 2rem;
+  font-family: 'Hilden','serif';
+  font-size: 3.5rem;
   @include respond(tablet){
-    font-size: 1.75rem;
+    font-size: 2.25rem;
   }
   @include respond(mobile){
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 }
+.--parallax-wrapper{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 100%;
+  transform-style: preserve-3d;
+  z-index: -1;
+}
+.--parallax-background,.--parallax-background{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+.--parallax-background{
+  transform: translateZ(-10px) scale(2);
+}
+.--parallax-foreground{
+  transform: translateZ(-5px) scale(1.5);
+}
+/* ---------------------------------------------------ANIMATIONS */
 .appearLeft-enter-active{
   animation: appearLeft 1s;
 }
@@ -65,8 +89,8 @@
     100%{transform: translateX(0px); opacity: 1;}
   }
 @keyframes appearBottom {
-  0%{transform: translateY(100%);}
-  100%{transform: translateY(0px);}  
+  0%{transform: translateY(100%) }
+  100%{transform: translateY(0px)}  
 }
 @keyframes grow {
   0%{transform: scale(0);}
@@ -74,7 +98,10 @@
   100%{transform: scale(1);}  
 }
 @keyframes fade {
-  0%{opacity: 0; transform: translateY(15px);}
-  100%{opacity: 1; transform: translateY(0px);}
+  0%{opacity: 0;}
+  100%{opacity: 1; } 
+}
+@keyframes shrink {
+0%{transform: scale(2);}
   
 }

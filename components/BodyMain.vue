@@ -1,8 +1,9 @@
 <template>
   <section class="body --flex-col">
-    <h1
+    <p
       v-observe-visibility="{
         callback: showTitle,
+        once: true,
         intersection: {
           rootMargin:'0px 0px -320px 0px',
           threshold: 1
@@ -12,9 +13,19 @@
       :class="{'--subline':isTitleShown}"
     >
       Nosotras
-    </h1>
-    <div class="body__intro">
-      <div class="body__intro__text">
+    </p>
+    <div
+      v-observe-visibility="{
+        callback: showElements,
+        once: true,
+        intersection: {
+          rootMargin:'0px 0px -320px 0px',
+          threshold: 1
+        },
+      }"
+      class="body__intro"
+    >
+      <div v-show="isBioShown" class="body__intro__text">
         <img class="body__intro__text__background" src="../assets/img/leaves2.png" alt="">
         <p>
           Samana Cosmética Natural surge de un profundo amor por nuestra Madre Naturaleza y la intrínseca relación con el cuidado de nuestra esencia.
@@ -25,11 +36,11 @@
           Elaboramos todos nuestros productos de forma artesanal, con ingredientes seleccionados para tu bienestar en armonía con la Tierra, nuestro hogar, y todos sus habitantes.
           Potenciamos a cada uno con mantras y reiki, para expandir sus beneficios físicos a los niveles más sutiles del Ser.
         </p>
-        <img class="body__intro__text__deco" src="../assets/img/leaves1.png" alt="">
+        <img v-show="isLeafShown" class="body__intro__text__deco" src="../assets/img/leaves1.png" alt="">
       </div>
 
       <div class="body__intro__img">
-        <img src="../assets/img/intro.jpg" alt="intro">
+        <img v-show="isPhotoShown" src="../assets/img/intro.jpg" alt="intro">
       </div>
     </div>
     <InfoBody />
@@ -41,7 +52,10 @@
 export default {
   data () {
     return {
-      isTitleShown: false
+      isTitleShown: false,
+      isBioShown: false,
+      isLeafShown: false,
+      isPhotoShown: false
     }
   },
   mounted () {
@@ -52,17 +66,18 @@ export default {
       if (isVisible) {
         this.isTitleShown = true
       }
-      console.log(entry)
     },
-    animateInfo (isVisible, entry) {
+    showElements (isVisible, entry) {
       if (isVisible) {
-        this.$refs.vegana.classList.add('--subline')
         setTimeout(() => {
-          this.$refs.natural.classList.add('--subline')
-        }, 600)
+          this.isBioShown = true
+        }, 700)
         setTimeout(() => {
-          this.$refs.ecologica.classList.add('--subline')
-        }, 1200)
+          this.isPhotoShown = true
+        }, 1400)
+        setTimeout(() => {
+          this.isLeafShown = true
+        }, 2100)
       }
     }
   }
@@ -79,10 +94,9 @@ export default {
     left: 0;
     background: $color4;
     width: 140%;
-    height: 4px;
+    height: 1px;
     margin-left: -20%;
-    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-    animation: appearBottom 1s,fade 1s;
+    animation: appearTitle 1s ;
   }
 }
 .body{
@@ -96,7 +110,8 @@ export default {
     padding: 2rem;
   }
   &__title{
-    transition: 1s;
+    margin-bottom: 2rem;
+
   }
   &__intro{
     display: flex;
@@ -117,6 +132,7 @@ export default {
       position:relative;
       width: 50%;
       min-width: 350px;
+      animation: appearBottom 1s, fade 1s;
       @include respond(laptop){
         font-size: 1rem;
       }
@@ -128,13 +144,10 @@ export default {
         position: absolute;
         bottom: 0;
         right: -35%;
+        animation: grow 1s;
         @include respond(laptop){
-bottom: -25%;
+          bottom: -25%;
         }
-        @include respond(tablet){
-
-        }
-
       }
       p{
         margin-block: 2rem;
@@ -156,11 +169,15 @@ bottom: -25%;
             height: 100%;
             border-radius: 5px;
             box-shadow: 3px 3px 8px lighten($color2, 0%);
+              animation: appearRight 1s;
         }
     }
 
   }
 
+}
+@keyframes appearTitle {
+  0%{opacity: 0;transform: scale(2) translateY(15px);}
 }
 
 </style>

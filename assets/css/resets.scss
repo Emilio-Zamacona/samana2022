@@ -1,9 +1,9 @@
 
-/* @font-face {
-  font-family: "Lora";
-  src: local("Lora"),
-  url('@/assets/fonts/Lora-VariableFont_wght.ttf');
-} */
+@font-face {
+  font-family: "Hilden";
+  src: local("Hilden"),
+  url('@/assets/fonts/hilden.ttf');
+}
 
 *, *:before, *:after {
   box-sizing: border-box;
@@ -17,6 +17,7 @@ li{
 body{
   margin: 0;
   overflow-x: hidden;
+  background-color: $color1;
   font-family: 'Manjari', sans-serif;
 }
 html{

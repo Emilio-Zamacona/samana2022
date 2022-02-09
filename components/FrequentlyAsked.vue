@@ -1,14 +1,15 @@
 <template>
   <div class="faq">
     <img class="faq__background" src="../assets/img/leaves3.png" alt="">
-    <p class="faq__title --title">
+    <p class="faq__title --title" @click="wea">
       Preguntas Frecuentes
     </p>
-    <QuestionFaq v-for="question in questions" :key="question.ask" :question="question" />
+    <QuestionFaq v-for="question in questions" :key="question.ask" class="question" :question="question" />
   </div>
 </template>
 
 <script>
+/* global gsap */
 export default {
   data () {
     return {
@@ -48,7 +49,16 @@ export default {
       ]
     }
   },
-  methods: {}
+  methods: {
+    wea () {
+      const tl = gsap.timeline()
+      tl.from('.question', {
+        duration: 1,
+        x: -100,
+        stagger: 0.13
+      })
+    }
+  }
 
 }
 </script>

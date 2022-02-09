@@ -1,6 +1,7 @@
 export { default as BodyMain } from '../..\\components\\BodyMain.vue'
 export { default as CardInfo } from '../..\\components\\CardInfo.vue'
 export { default as ContactMain } from '../..\\components\\ContactMain.vue'
+export { default as Footer } from '../..\\components\\Footer.vue'
 export { default as FrequentlyAsked } from '../..\\components\\FrequentlyAsked.vue'
 export { default as HeroMain } from '../..\\components\\HeroMain.vue'
 export { default as InfoBody } from '../..\\components\\InfoBody.vue'

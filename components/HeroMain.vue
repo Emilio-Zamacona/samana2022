@@ -2,7 +2,7 @@
   <section>
     <div class="hero --flex">
       <div ref="dark" class="hero__background"></div>
-      <h1 class="hero__title --title">
+      <h1 class="hero__title">
         Samana cosmética natural
       </h1>
       <transition name="fade">
@@ -55,7 +55,7 @@ export default {
   justify-content: flex-start;
   align-items: center;
   width: 100vw;
-  height: 150vh;
+  height: 130vh;
   position: relative;
   background: rgba(0, 0, 0, 0);
   &__background{
@@ -75,11 +75,16 @@ export default {
   &__title{
     font-family:"Allura","cursive";
     margin: 0;
+    font-size: 2.5rem;
     color: $color1;
     background: $color3;
     text-align: center;
     padding: 1rem;
     width: 100vw;
+
+    @include respond(mobile){
+      font-size: 1.75rem;
+    }
   }
   &__container{
     width: 100%;
@@ -87,8 +92,8 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     &__phrase{
-        padding-block: 40vh;
         font-size: 4rem;
         font-family: 'Allura','cursive';
         color: $color1;

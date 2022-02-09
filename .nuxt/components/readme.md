@@ -9,6 +9,7 @@ You can directly use them in pages and other components without the need to impo
 - `<BodyMain>` | `<body-main>` (components/BodyMain.vue)
 - `<CardInfo>` | `<card-info>` (components/CardInfo.vue)
 - `<ContactMain>` | `<contact-main>` (components/ContactMain.vue)
+- `<Footer>` | `<footer>` (components/Footer.vue)
 - `<FrequentlyAsked>` | `<frequently-asked>` (components/FrequentlyAsked.vue)
 - `<HeroMain>` | `<hero-main>` (components/HeroMain.vue)
 - `<InfoBody>` | `<info-body>` (components/InfoBody.vue)

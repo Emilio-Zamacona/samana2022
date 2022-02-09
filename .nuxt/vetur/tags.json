@@ -8,6 +8,9 @@
   "ContactMain": {
     "description": "Auto imported from components/ContactMain.vue"
   },
+  "Footer": {
+    "description": "Auto imported from components/Footer.vue"
+  },
   "FrequentlyAsked": {
     "description": "Auto imported from components/FrequentlyAsked.vue"
   },
