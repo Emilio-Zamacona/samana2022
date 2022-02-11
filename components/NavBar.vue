@@ -44,6 +44,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   z-index: 99;
+  border-bottom: 1px rgb(230, 230, 230) solid;
   &__logo{
     width: 60px;
     cursor: pointer;
