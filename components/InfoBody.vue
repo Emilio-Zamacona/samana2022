@@ -41,6 +41,7 @@
 export default {
   data () {
     return {
+      shown: false,
       cards: [
         {
           name: 'Natural',
@@ -62,7 +63,7 @@ export default {
     }
   },
   mounted () {
-    document.addEventListener('scroll', function () {
+    /* document.addEventListener('scroll', function () {
       const circles = document.getElementsByClassName('info__title')
       const lines = document.getElementsByClassName('info__divisor')
       const arr = [...circles].concat([...lines])
@@ -78,12 +79,14 @@ export default {
           item.style.top = -(offsetY * para * 1.5) + 'px'
         }
       })
-    })
+    }) */
+    window.onresize = this.animateOnResize
   },
 
   methods: {
     animateTitle (isVisible) {
       if (isVisible) {
+        this.shown = true
         const words = gsap.timeline()
         const circles = gsap.timeline()
         words.from('.info__title__word', {
@@ -108,12 +111,25 @@ export default {
         },
         {
           duration: 1,
-          width: 80,
-          height: 80,
+          width: 50,
+          height: 50,
           opacity: 0.4,
           background: '#808F57',
           ease: 'back',
           stagger: 0.75
+        })
+      }
+    },
+    animateOnResize () {
+      if (this.shown) {
+        const words = gsap.timeline()
+        words.to('.--line1', {
+          duration: 0.75,
+          width: window.innerWidth * 0.85
+        })
+        words.to('.--line2', {
+          duration: 0.75,
+          width: window.innerWidth * 0.75
         })
       }
     }

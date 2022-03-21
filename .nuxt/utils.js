@@ -200,7 +200,7 @@ export async function setContext (app, context) {
       payload: context.payload,
       error: context.error,
       base: app.router.options.base,
-      env: {"STRAPI_URL":"http://localhost:1337/api"}
+      env: {"STRAPI_URL":"http://samana-backend.herokuapp.com/api"}
     }
     // Only set once
 

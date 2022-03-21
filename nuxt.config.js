@@ -85,11 +85,11 @@ export default {
     public_key: 'TEST-5a21df55-663b-4458-877b-d5854279d347'
   },
   strapi: {
-    url: process.env.STRAPI_URL || 'http://localhost:1337/api',
+    url: process.env.STRAPI_URL || 'http://samana-backend.herokuapp.com/api',
     entities: ['products', 'orders', 'subscribers']
   },
   env: {
-    STRAPI_URL: 'http://localhost:1337/api'
+    STRAPI_URL: 'http://samana-backend.herokuapp.com/api'
   },
   styleResources: {
     scss: ['./assets/css/*.scss']

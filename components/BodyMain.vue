@@ -40,7 +40,7 @@
       </div>
 
       <div class="body__intro__img">
-        <img v-show="isPhotoShown" src="../assets/img/intro.jpg" alt="intro">
+        <img v-show="isPhotoShown" src="../assets/img/bruma armonizante.jpg" alt="intro">
       </div>
     </div>
     <InfoBody />
