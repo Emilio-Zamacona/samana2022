@@ -1,5 +1,12 @@
 [
   {
+    "name": "contact",
+    "path": "/contact",
+    "component": "E:\\\\GitHub\\\\samana2022\\\\frontend\\\\pages\\\\contact.vue",
+    "chunkName": "pages/contact",
+    "_name": "_d57b1f72"
+  },
+  {
     "name": "shop",
     "path": "/shop",
     "component": "E:\\\\GitHub\\\\samana2022\\\\frontend\\\\pages\\\\shop.vue",
