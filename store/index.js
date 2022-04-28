@@ -2,13 +2,15 @@ export const state = () => ({
   winWidth: 0,
   allProducts: [],
   featuredProducts: [],
-  cartItems: []
+  cartItems: [],
+  inConstruction: true
 })
 
 export const getters = {
   /*
       return items from store
     */
+  getInConstruction: state => state.inConstruction,
   allProducts: state => state.allProducts,
   featuredProducts: state => state.featuredProducts,
   getCart: state => state.cartItems,

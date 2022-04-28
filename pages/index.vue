@@ -1,12 +1,25 @@
 <template>
   <section class="main">
-    <HeroMain />
-    <BodyMain />
-    <InfoBody />
-    <LowerBody />
-    <!-- <div class="divisor1"></div> -->
-    <FrequentlyAsked />
-    <ContactMain />
+    <div v-if="getInConstruction" class="construction">
+      <h1 style="margin: 0;">
+        Este sitio se encuentra bajo construcción, por favor vuelva mas tarde
+      </h1>
+      <div>
+        <h2>visitanos en:</h2>
+        <a href="https://instagram.com/samanacosmeticanatural">
+          <img src="../assets/img/ig.png" alt="instagram logo">
+        </a>
+      </div>
+    </div>
+    <div v-else>
+      <HeroMain />
+      <BodyMain />
+      <InfoBody />
+      <LowerBody />
+      <!-- <div class="divisor1"></div> -->
+      <FrequentlyAsked />
+      <ContactMain />
+    </div>
   </section>
 </template>
 
@@ -20,12 +33,28 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['allProducts'])
+    ...mapGetters(['allProducts', 'getInConstruction'])
   }
 
 }
 </script>
 <style lang="scss">
+.construction{
+  width: 100vw;
+  height: 100vh;
+  background-color: $color2;
+  color: $color1;
+  display: grid;
+  place-items: center;
+  div{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  img{
+    width: 200px;
+  }
+}
 /* .divisor1{
   height: 5vw;
   width: 100vw;
