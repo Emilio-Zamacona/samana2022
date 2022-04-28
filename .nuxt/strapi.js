@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import { Strapi } from '~strapi'
 
-const options = {"url":"http://samana-backend.herokuapp.com/api","entities":["products","orders","subscribers"],"key":"strapi_jwt","expires":"session","cookie":{}}
+const options = {"url":"http://samana-backend.herokuapp.com/api","entities":["products","orders","subscribers"],"key":"strapi_jwt","expires":"session","cookie":{},"baseUrl":"http://samana-backend.herokuapp.com"}
 
 options.entities.forEach((entity) => {
   let key

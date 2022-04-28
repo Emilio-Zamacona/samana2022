@@ -1,10 +1,18 @@
 <template>
   <div class="faq">
-    <img class="faq__background" src="../assets/img/leaves3.png" alt="">
-    <p class="faq__title --title" @click="wea">
-      Preguntas Frecuentes
+    <p class="color-5 --title" @click="wea">
+      Preguntas frecuentes
     </p>
-    <QuestionFaq v-for="question in questions" :key="question.ask" class="question" :question="question" />
+    <div class="divider background-color-5" style="margin-top: .5rem; margin-bottom: 3rem;"></div>
+    <div class="faq__question-wrapper">
+      <div class="faq__question-wrapper__question">
+        <QuestionFaq v-for="question in questions.slice(0,4)" :key="question.ask" class="question" :question="question" />
+      </div>
+      <div class="faq__question-wrapper__question">
+        <QuestionFaq v-for="question in questions.slice(4,8)" :key="question.ask" class="question" :question="question" />
+      </div>
+    </div>
+    <img v-if="$store.state.winWidth>961" class="leaves" src="../assets/img/leaves4.png" alt="hojas de una planta">
   </div>
 </template>
 
@@ -64,34 +72,49 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.leaves{
+  position: absolute;
+  width: 400px;
+  opacity: .8;
+  bottom: -200px;
+  right: 0;
+  z-index: 3;
+  pointer-events: none;
+  @include respond(md){
+    bottom: -300px;
+  }
+}
 .faq{
-  background: $color2;
-  padding: 3rem;
+  background: $color1;
   position: relative;
-
-  &__background{
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100%;
-    max-height: 400px;
-    filter: opacity(.2);
-    pointer-events: none;
-    @include respond(tablet){
-      top: 0;
-      position: absolute;
-      left: 0;
-      right: 0;
-      margin-left: auto;
-      margin-right: auto;
-      width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  padding-block: 4rem;
+  padding-inline: max(6rem,20%);
+  @include respond(xs){
+    padding-inline: 2rem;
+  }
+  &__question-wrapper{
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    @include respond(sm){
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 0rem;
 
     }
-
-  }
-  &__title{
-
-    color: $color3;
+    &__question{
+      width: 50%;
+      z-index: 4;
+      @include respond(sm){
+        width: 100%;
+      }
+    }
   }
 }
 

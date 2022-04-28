@@ -45,7 +45,8 @@ export default {
     '@/plugins/vue-awesome-swiper.js',
     '@/plugins/vue-fontawesome.js',
     '@/plugins/vue-observe-visibility.js',
-    '@/plugins/global.js'
+    '@/plugins/global.js',
+    { src: '~/plugins/window-width.js', ssr: false }
 
   ],
 
@@ -85,7 +86,8 @@ export default {
     public_key: 'TEST-5a21df55-663b-4458-877b-d5854279d347'
   },
   strapi: {
-    url: process.env.STRAPI_URL || 'http://samana-backend.herokuapp.com/api',
+    url: 'http://samana-backend.herokuapp.com/api',
+    baseUrl: 'http://samana-backend.herokuapp.com',
     entities: ['products', 'orders', 'subscribers']
   },
   env: {
@@ -111,6 +113,9 @@ export default {
   },
   ssr: true,
   target: 'static',
+  server: {
+    host: '0.0.0.0' // default: localhost
+  },
   eslint: {
     fix: true
   }

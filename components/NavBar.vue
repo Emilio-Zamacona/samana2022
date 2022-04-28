@@ -39,6 +39,7 @@ export default {
   background: $color1;
   width: 100vw;
   padding: 1rem;
+  padding-inline:2rem;
   color: $color4;
   display: flex;
   justify-content: space-between;
@@ -55,13 +56,10 @@ export default {
     justify-content: flex-end;
     gap: 2rem;
     margin: 0;
-    padding: 0 0 0 0;
+    padding: 0;
 
     &__navitem{
-      &:visited{
-
-        color: $color2;
-      }
+      color: inherit;
     }
   }
 

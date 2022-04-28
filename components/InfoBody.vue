@@ -1,7 +1,10 @@
 
 <template>
-  <div class="info --flex-col">
-    <div class="info__divisor --line1"></div>
+  <div class="info main-container">
+    <div class="--flex" style="width: 100%;">
+      <div class="circle-1"></div>
+      <div class="divider"></div>
+    </div>
 
     <div
       v-observe-visibility="{
@@ -14,22 +17,34 @@
       }"
       class="info__title --title"
     >
-      Cósmetica&#160;
-      <div id="natural" ref="natural" class="info__title__word">
-        Natural,&#160;
-        <div id="naturalCircle" class="circle"></div>
-      </div><div id="vegana" ref="vegana" class="info__title__word">
-        Vegana&#160;
-        <div id="veganaCircle" class="circle"></div>
+      <div class="--flex">
+        <div>
+          Cosmética&#160;
+        </div>
+        <div id="natural" ref="natural" class="info__title__word">
+          natural,&#160;
+          <div id="naturalCircle" class="circle"></div>
+        </div>
       </div>
-      <div> y&#160; </div>
-      <div id="ecologica" ref="ecologica" class="info__title__word">
-        Ecológica&#160;
-        <div id="ecologicaCircle" class="circle"></div>
+      <div class="--flex">
+        <div id="vegana" ref="vegana" class="info__title__word --flex">
+          vegana&#160;y&#160;
+          <div id="veganaCircle" class="circle"></div>
+        </div>
+        <div id="ecologica" ref="ecologica" class="info__title__word">
+          ecológica
+          <div id="ecologicaCircle" class="circle"></div>
+        </div>
       </div>
     </div>
-    <div class="info__divisor --line2"></div>
+    <div class="--flex" style="width: 90%;">
+      <div class="divider"></div>
+      <div class="circle-1"></div>
+    </div>
+
     <div class="info__cards">
+      <img class="leaf-left" src="../assets/img/leaves6.png" alt="">
+      <img class="leaf-right" src="../assets/img/leaves4.png" alt="">
       <CardInfo v-for="card in cards" :key="card.name" :info="card" />
     </div>
   </div>
@@ -45,44 +60,23 @@ export default {
       cards: [
         {
           name: 'Natural',
-          img: [require('../assets/img/sulfato.png'), require('../assets/img/paraben.png'), require('../assets/img/petro.png')],
-          description: 'Utilizamos ingredientes naturales, evitando derivados del petroleras como parabenos, petrolatos, detergentes, siliconas; tensioactivos sintéticos, fragancias, y otros químicos tóxicos para tu organismo y el medio ambiente. Nuestra cosmética es alimento para la piel y el cabello. '
+          img: [require('../assets/img/paraben.png'), require('../assets/img/sulfato.png')],
+          description: 'Utilizamos ingredientes naturales, evitando derivados del petróleo como parabenos, petrolatos, detergentes, siliconas; tensioactivos sintéticos, fragancias, y otros químicos tóxicos para tu organismo y el medio ambiente. Nuestra cosmética es alimento para la piel y el cabello. '
         },
         {
           name: 'Vegana',
-          img: [require('../assets/img/leaf.png'), require('../assets/img/cruelty.png')],
-          description: 'Esto quiere decir que no utilizamos ingredientes de origen animal (o de insectos como cera de abejas o carmín, etc.) ni derivados. No testeamos en animales. Utilizamos ingredientes que no dañen la fauna una vez que llegan a la tierra o el agua. '
+          img: [require('../assets/img/vegan.png'), require('../assets/img/cruelty.png')],
+          description: 'No utilizamos ingredientes de origen animal (o de insectos como cera de abejas o carmín, etc.) ni derivados. No testeamos en animales. Utilizamos ingredientes que no dañen la fauna una vez que llegan a la tierra o el agua. '
         },
 
         {
           name: 'Ecológica',
           img: [require('../assets/img/plastic.png'), require('../assets/img/recycle.png')],
-          description: 'No utilizamos ingredientes sintéticos que contaminan los suelos y el agua, trayendo consecuencias sumamente negativas para la biodiversidad. Evitamos el uso de envases plásticos, los cosméticos sólidos cuentan con packaging biodegradable. Los cosméticos no sólidos tienen envases de vidrio recargables, reutilizables o reciclables.'
+          description: 'Cosmética libre de ingredientes sintéticos que contaminan los suelos y el agua, trayendo consecuencias sumamente negativas para la biodiversidad. Evitamos el uso de envases plásticos. Utilizamos envases de vidrio recargables, reutilizables o reciclables.'
         }
       ]
     }
   },
-  mounted () {
-    /* document.addEventListener('scroll', function () {
-      const circles = document.getElementsByClassName('info__title')
-      const lines = document.getElementsByClassName('info__divisor')
-      const arr = [...circles].concat([...lines])
-      const para = 0.15
-      arr.forEach((item) => {
-        const offsetY = item.getBoundingClientRect().top
-        console.log(offsetY)
-        console.log('scroll: ' + window.scrollY)
-
-        if (item.classList.contains('info__title')) {
-          item.style.top = -(offsetY * para) + 'px'
-        } else {
-          item.style.top = -(offsetY * para * 1.5) + 'px'
-        }
-      })
-    }) */
-    window.onresize = this.animateOnResize
-  },
-
   methods: {
     animateTitle (isVisible) {
       if (isVisible) {
@@ -95,41 +89,18 @@ export default {
           color: '#eee',
           stagger: 0.75
         })
-        words.to('.--line1', {
-          duration: 0.75,
-          width: window.innerWidth * 0.85
-        })
-        words.to('.--line2', {
-          duration: 0.75,
-          width: window.innerWidth * 0.75
-        })
         circles.fromTo('.circle', {
-          width: 0,
-          height: 0,
+
           background: '#fbfbf7',
           yoyo: true
         },
         {
           duration: 1,
-          width: 50,
-          height: 50,
+
           opacity: 0.4,
           background: '#808F57',
           ease: 'back',
           stagger: 0.75
-        })
-      }
-    },
-    animateOnResize () {
-      if (this.shown) {
-        const words = gsap.timeline()
-        words.to('.--line1', {
-          duration: 0.75,
-          width: window.innerWidth * 0.85
-        })
-        words.to('.--line2', {
-          duration: 0.75,
-          width: window.innerWidth * 0.75
         })
       }
     }
@@ -137,6 +108,24 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.leaf-left{
+  position: absolute;
+  left: -115px;
+  top: 50%;
+  width: 425px;
+  transform: rotate(-20.29deg) translateY(-50%);
+  opacity: 0.3;
+  z-index: 3;
+}
+.leaf-right{
+  position: absolute;
+  right: -190px;
+  bottom: -220px;
+  width: 450px;
+  transform: rotate(29.28deg);
+  z-index: 3;
+  opacity: 0.8;
+}
 .circle{
   position: absolute;
   top: 0;
@@ -144,40 +133,45 @@ export default {
   left: 0;
   right: 0;
   margin: auto;
-  width: 0px;
-  height: 0px;
+  width: 5rem;
+  height: 5rem;
   border-radius: 50%;
   z-index: -1;
+  @include respond(md){
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+    @include respond(xs){
+    width: 3rem;
+    height: 3rem;
+  }
 }
 .test{
   position: relative;
   top: 0;
 }
-.--line1{
-  width: 0;
 
-  &::before{
-    content: "";
-    position: absolute;
-    top: -10px;
-    left: -40px;
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    background: $color3;
-  }
-}
-.--line2{width: 0;}
 .info{
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
   width: 100%;
   min-height: 100vh;
   &__title{
     display: flex;
     position: relative;
+    color: $color5 !important;
+    @include respond(sm){
+      flex-direction: column;
+
+    }
+
     &__word{
       position: relative;
+      color: inherit !important;
+
     }
   }
   &__divisor{
@@ -188,7 +182,8 @@ export default {
   }
   &__cards{
     display: flex;
-    @include respond(tablet){
+    position: relative;
+    @include respond(sm){
       flex-direction: column;
     }
   }

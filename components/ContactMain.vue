@@ -1,10 +1,16 @@
 <template>
-  <section class="contact --flex --fixed-on-top">
-    <img class="contact__img" src="../assets/img/leaves4.png" alt="">
-    <div id="contact-form" class="contact__form-container --flex-col">
-      <h1 class="contact__form-container__title">
+  <section class="contact --flex main-container">
+    <div class="contact__nature">
+      <p>
+        Somos naturaleza
+      </p>
+      <img src="../assets/img/mano flores.png" alt="mano con flores">
+    </div>
+    <div id="contact-form" class="contact__form-container">
+      <h2 class="--title ">
         Contacto
-      </h1>
+      </h2>
+      <img v-if="$store.state.winWidth<961" class="contact__form-container__img" src="../assets/img/leaves4.png" alt="hojas de una planta">
       <form action="" class="contact__form-container__form --flex-col">
         <div class="contact__form-container__form__field">
           <label for="name">Nombre</label>
@@ -37,7 +43,9 @@
 </template>
 
 <script>
+
 export default {
+
   data () {
     return {}
   },
@@ -63,18 +71,20 @@ export default {
       }
     }
   }
-
 }
 </script>
 
 <style lang="scss" scoped>
 button{
   border:none;
-  padding: 1rem;
-  background: $color4;
+  font-size: 1.25rem;
+  background: lighten($color3,20%);
   color: $color1;
-  letter-spacing: 4px;
   margin-bottom: 2rem;
+  height: 100px;
+  width: 100px;
+  letter-spacing: 2px;
+  border-radius: 50%;
 }
 
 .--focused-line{
@@ -94,24 +104,55 @@ button{
 .contact{
   color:$color2;
   background: $color1;
-  letter-spacing: 5px;
   position: relative;
-  &__img{
+  width: 100%;
+  @include respond(sm){
+    display: flex;
+    flex-direction: column;
+    padding-top: 0 !important;
+
+  }
+  &__nature{
+    position: relative;
     height: 400px;
-    @include respond(tablet){
-      top: 0;
+    width: 50%;
+    display: flex;
+    align-items: flex-end;
+    @include respond(sm){
+      margin-left: 50%;
+      margin-bottom: 6rem;
+    }
+    img{
+      -webkit-transform: scaleX(-1) rotate(-15deg);
+      transform: scaleX(-1) rotate(-15deg);
+      width: 300px;
+      height: 100%;
       position: absolute;
+      top: 20px;
+      left: -180px;
+      overflow: hidden;
+    }
+    p{
+      font-family: 'Hilden','serif';
+      font-size: 4rem;
+      color: $color4;
+
+    }
+  }
+  &__form-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    &__img{
+      height: 400px;
+      position: absolute;
+      top: 2rem;
       left: 0;
       right: 0;
       margin-left: auto;
       margin-right: auto;
       filter: opacity(.2);
-
-    }
-  }
-  &__form-container{
-    &__title{
-      font-size: 2rem;
     }
     &__form{
       gap: 1rem;
@@ -119,6 +160,9 @@ button{
         display: flex;
         flex-direction: column;
         position: relative;
+        label{
+          font-size: 1.5rem;
+        }
         &--flex-end{
           align-items: center;
         }

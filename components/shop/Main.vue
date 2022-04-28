@@ -1,7 +1,7 @@
 <template>
-  <section class="shop">
-    <ProductCard v-for="product in allProducts" :key="product.attributes.name" :product-data="product">
-    </Productcard>
+  <section class="shop main-container">
+    <ShopProductCard v-for="product in allProducts" :key="product.attributes.name" :product-data="product">
+    </ShopProductCard>
   </section>
 </template>
 
@@ -21,10 +21,13 @@ export default {
 <style lang="scss" scoped>
 .shop{
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   padding:1rem;
   width: 100%;
   gap: 1rem;
-  background: $color2;
+  background: $color1;
+  min-height: 100vh;
+
 }
 </style>

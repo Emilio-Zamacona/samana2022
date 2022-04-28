@@ -32,7 +32,10 @@ export default {
 .question{
   margin: 1rem;
   z-index: 3;
-
+  width: 100%;
+  &:last-child{
+    margin-bottom: 0 !important;
+  }
   &__ask{
     color: $color3;
     cursor: pointer;
@@ -41,7 +44,6 @@ export default {
   &__answer{
     background: $color3;
     color: $color1;
-    border: $color2 1px solid;
     padding: 1rem;
     margin-left: 1rem;
     border-radius: 5px;

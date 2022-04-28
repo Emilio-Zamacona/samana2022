@@ -1,83 +1,136 @@
 <template>
-  <section class="body --flex-col">
+  <section class="body main-container">
     <p
       v-observe-visibility="{
-        callback: showTitle,
+        callback: (isVisible,entry) => appearTop(isVisible,entry,'.body__title',0.5),
         once: true,
         intersection: {
           rootMargin:'0px 0px -320px 0px',
           threshold: 1
         },
       }"
-      class="body__title --title"
-      :class="{'--subline':isTitleShown}"
+      class="body__title --title color-5"
+      style="opacity: 0;"
     >
       Nosotras
     </p>
     <div
+      ref="aboutUsSubline"
       v-observe-visibility="{
-        callback: showElements,
+        callback: subline,
         once: true,
         intersection: {
           rootMargin:'0px 0px -320px 0px',
           threshold: 1
         },
       }"
-      class="body__intro"
+      class="--flex"
+      style="width: 100%;margin-bottom: 3rem;"
     >
-      <div v-show="isBioShown" class="body__intro__text">
-        <img class="body__intro__text__background" src="../assets/img/leaves2.png" alt="">
+      <div id="aboutUsCircle1" class="circle-1" style="opacity: 0;"></div>
+      <div class="divider" style="transform: scaleX(0);"></div>
+      <div id="aboutUsCircle2" class="circle-1" style="opacity: 0;"></div>
+    </div>
+    <div class="body__intro">
+      <div
+        v-observe-visibility="{
+          callback: (isVisible,entry) => appearLeft(isVisible,entry,'.body__intro__text',0.7),
+          once: true,
+          intersection: {
+            rootMargin:'0px 0px -100px 0px',
+            threshold: 1
+          },
+        }"
+        class="body__intro__text"
+        style="opacity: 0;"
+      >
         <p>
-          Samana Cosmética Natural surge de un profundo amor por nuestra Madre Naturaleza y la intrínseca relación con el cuidado de nuestra esencia.
+          Samana Cosmética Natural surge de un <span class="weight-800">profundo amor por nuestra Madre Naturaleza</span> y la intrínseca relación con el cuidado de nuestra esencia.
         </p>
-        <p> Somos Flor y Lilen, dos amigas dedicadas a la Aromaterapia y la Cosmética Natural, como medio para el cuidado integral del cuerpo, mente, emoción y espíritu. </p>
+        <p> Somos Flor y Lilen, dos amigas dedicadas a la Aromaterapia y la Cosmética Natural, como medio para el <span class="weight-800">cuidado integral del cuerpo, mente, emoción y espíritu.</span> </p>
         <p>
-          Desde Samana te invitamos a conectar con las bondades que tiene la naturaleza para ofrecerte.
-          Elaboramos todos nuestros productos de forma artesanal, con ingredientes seleccionados para tu bienestar en armonía con la Tierra, nuestro hogar, y todos sus habitantes.
-          Potenciamos a cada uno con mantras y reiki, para expandir sus beneficios físicos a los niveles más sutiles del Ser.
+          Desde Samana te invitamos a <span class="weight-800">conectar</span> con las <span class="weight-800">bondades</span> que tiene la <span class="weight-800">naturaleza</span> para ofrecerte.
+          Elaboramos todos nuestros productos de forma <span class="weight-800">artesanal,</span> con <span class="weight-800">ingredientes seleccionados</span> para tu bienestar en armonía con la Tierra, nuestro hogar, y todos sus habitantes.
+          Potenciamos a cada uno con mantras y <span class="weight-800">reiki,</span> para expandir sus beneficios físicos a los niveles más sutiles del <span class="weight-800">Ser.</span>
         </p>
-        <img v-show="isLeafShown" class="body__intro__text__deco" src="../assets/img/leaves1.png" alt="">
       </div>
-
-      <div class="body__intro__img">
-        <img v-show="isPhotoShown" src="../assets/img/bruma armonizante.jpg" alt="intro">
+      <div
+        v-observe-visibility="{
+          callback: (isVisible,entry) => appearRight(isVisible,entry,'.body__intro__img-container',0.7),
+          once: true,
+          throttle: 700,
+          intersection: {
+            rootMargin:'0px 0px -100px 0px',
+            threshold: 1
+          },
+        }"
+        class="body__intro__img-container"
+        style="position: relative;opacity:0"
+      >
+        <img class="body__intro__img" src="../assets/img/bruma armonizante.jpg" alt="intro">
+        <img class="body__intro__img__background" src="../assets/img/leaves1.png" alt="hojas">
       </div>
     </div>
-    <InfoBody />
+    <div
+      v-observe-visibility="{
+        callback: (isVisible,entry) => appearBottom(isVisible,entry,'.bottom',0.7),
+        once: true,
+        intersection: {
+          rootMargin:'0px 0px 0px 0px',
+          threshold: 1
+        },
+      }"
+
+      class="bottom"
+      style="width: 100%;"
+    >
+      <p class="bottom__text color-4 --title" style="line-height: 2.25rem;">
+        Alquimia actual,<br> en conexión con la<br> sabiduría ancestral
+      </p>
+      <img class="bottom__img" src="../assets/img/manos hojas.png" alt="manos hojas">
+    </div>
   </section>
 </template>
 
 <script>
 
+import animation from '../mixins/animation.js'
+/* global gsap */
 export default {
+  mixins: [animation],
   data () {
     return {
-      isTitleShown: false,
-      isBioShown: false,
-      isLeafShown: false,
-      isPhotoShown: false
     }
   },
   mounted () {
   },
-
   methods: {
-    showTitle (isVisible, entry) {
+    subline (isVisible) {
       if (isVisible) {
-        this.isTitleShown = true
-      }
-    },
-    showElements (isVisible, entry) {
-      if (isVisible) {
-        setTimeout(() => {
-          this.isBioShown = true
-        }, 700)
-        setTimeout(() => {
-          this.isPhotoShown = true
-        }, 1400)
-        setTimeout(() => {
-          this.isLeafShown = true
-        }, 2100)
+        const tl = gsap.timeline()
+        const tl2 = gsap.timeline()
+        tl.to('#aboutUsCircle1', {
+          duration: 0.2,
+          x: this.$refs.aboutUsSubline.clientWidth / 2
+        })
+        tl.to('#aboutUsCircle2', {
+          duration: 0.2,
+          x: -this.$refs.aboutUsSubline.clientWidth / 2
+        })
+        tl.to('.circle-1', {
+          opacity: 1,
+          duration: 1
+        })
+        tl.to('.circle-1', {
+          duration: 0.6,
+          x: 0
+        })
+
+        tl2.to('.divider', {
+          delay: 1.4,
+          scaleX: 1,
+          duration: 1
+        })
       }
     }
   }
@@ -85,33 +138,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.--subline{
-  position: relative;
-  &::after{
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    background: $color4;
-    width: 140%;
-    height: 1px;
-    margin-left: -20%;
-    animation: appearTitle 1s ;
-  }
-}
+
 .body{
-  width: 100vw;
-  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   background: $color1;
-  color: $color4;
+  color: $color5;
   z-index: 2;
   margin: 0;
-  @include respond(mobile){
-    padding: 2rem;
-  }
   &__title{
-    margin-bottom: 2rem;
-
+    margin-bottom: 0rem;
   }
   &__intro{
     display: flex;
@@ -119,12 +157,12 @@ export default {
     justify-content: space-between;
     align-items: center;
     gap: 4rem;
-    margin-bottom: 3rem;
+    margin-bottom: 0rem;
     position: relative;
-    @include respond(laptop){
+    @include respond(md){
       gap: 2rem;
     }
-    @include respond(tablet){
+    @include respond(sm){
       flex-direction: column;
     }
     &__text{
@@ -132,22 +170,12 @@ export default {
       position:relative;
       width: 50%;
       min-width: 350px;
-      animation: appearBottom 1s, fade 1s;
-      @include respond(laptop){
+      line-height: 1.5rem;
+      @include respond(md){
         font-size: 1rem;
       }
-      @include respond(mobile){
+      @include respond(xs){
         min-width: 300px;
-      }
-      &__deco{
-        height: 200px;
-        position: absolute;
-        bottom: 0;
-        right: -35%;
-        animation: grow 1s;
-        @include respond(laptop){
-          bottom: -25%;
-        }
       }
       p{
         margin-block: 2rem;
@@ -157,27 +185,66 @@ export default {
         top: 0;
         left: -50px;
         height: 100%;
-        filter: opacity(0.2);
-        transform: rotate(15deg);
+
       }
     }
     &__img{
-        height: 50vh;
+        height: 40vh;
         min-height: 350px;
+        box-shadow: 2px 2px 5px #00000099;
+        border-radius: 3px;
+        z-index: 1;
+        position: relative;
+        &__background{
+          position: absolute;
+          bottom: -3.25rem;
+          right: -13rem;
+          width: 400px;
+          filter: opacity(0.4);
+          transform: rotate(14.07deg);
+          z-index: 0;
 
-        img{
-            height: 100%;
-            border-radius: 5px;
-            box-shadow: 3px 3px 8px lighten($color2, 0%);
-              animation: appearRight 1s;
         }
     }
 
   }
+}
+.bottom{
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  @include respond(sm){
+    margin-top: 2rem;
+    flex-direction: column;
+  }
+  &__text{
+    margin-left: 4rem;
+    font-family: 'Hilden','serif';
+    font-size: 3.5rem;
+    @include respond(sm){
+      margin-left: 0rem;
+    }
+  }
+  &__img{
+    width: auto;
+    height: auto;
+    max-width: 320px;
+    max-height: 240px;
+     margin-top: -4rem;
+    @include respond(sm){
+      margin-top: 0rem;
+    }
 
+  }
 }
 @keyframes appearTitle {
   0%{opacity: 0;transform: scale(2) translateY(15px);}
+}
+@keyframes leaves{
+  0%{transform: rotate(0deg);opacity: 0;}
+  100%{transform: rotate(14.07deg);opacity: 1;}
 }
 
 </style>

@@ -8,8 +8,8 @@
   "ContactMain": {
     "description": "Auto imported from components/ContactMain.vue"
   },
-  "Footer": {
-    "description": "Auto imported from components/Footer.vue"
+  "FooterMain": {
+    "description": "Auto imported from components/FooterMain.vue"
   },
   "FrequentlyAsked": {
     "description": "Auto imported from components/FrequentlyAsked.vue"
@@ -20,19 +20,22 @@
   "InfoBody": {
     "description": "Auto imported from components/InfoBody.vue"
   },
+  "LowerBody": {
+    "description": "Auto imported from components/LowerBody.vue"
+  },
   "NavBar": {
     "description": "Auto imported from components/NavBar.vue"
-  },
-  "PaymentForm": {
-    "description": "Auto imported from components/PaymentForm.vue"
-  },
-  "ProductCard": {
-    "description": "Auto imported from components/ProductCard.vue"
   },
   "QuestionFaq": {
     "description": "Auto imported from components/QuestionFaq.vue"
   },
-  "ShopSection": {
-    "description": "Auto imported from components/ShopSection.vue"
+  "ShopMain": {
+    "description": "Auto imported from components/shop/Main.vue"
+  },
+  "ShopPaymentForm": {
+    "description": "Auto imported from components/shop/PaymentForm.vue"
+  },
+  "ShopProductCard": {
+    "description": "Auto imported from components/shop/ProductCard.vue"
   }
 }

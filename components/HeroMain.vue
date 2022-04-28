@@ -1,15 +1,25 @@
 <template>
   <section>
-    <div class="hero --flex">
+    <div class="hero">
       <div ref="dark" class="hero__background"></div>
-      <h1 class="hero__title">
-        Samana cosmética natural
-      </h1>
+      <div class="hero__title">
+        <h1 class="hero__title__top">
+          Samana
+        </h1>
+        <h2 class="hero__title__sub weight-400">
+          cosmética natural
+        </h2>
+      </div>
+
       <transition name="fade">
         <div v-if="isDark" class="hero__container">
           <p class="hero__container__phrase">
-            La naturaleza nos habla a través de sus aromas, encendé tus sentidos con Samana
+            La naturaleza te habla, <br>escuchala con<br> Samana
           </p>
+          <div class="hero__container__divider"></div>
+          <div class="hero__container__circle circle-1"></div>
+          <div class="hero__container__circle circle-2"></div>
+          <div class="hero__container__circle circle-3"></div>
         </div>
       </transition>
     </div>
@@ -45,45 +55,59 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.circle-1{
+  width: 1.5rem;
+
+}
+.circle-2{
+  width: 1.25rem;
+
+}
+.circle-3{
+  width: 1rem;
+
+}
 .--dark{
- filter: brightness(0.4);
+ filter: brightness(0.35) hue-rotate(15deg) saturate(1.3);
 
 }
 .hero{
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-end;
   width: 100vw;
   height: 130vh;
   position: relative;
   background: rgba(0, 0, 0, 0);
+
   &__background{
     position: absolute;
     top: 0;
     left: 0;
     width: 100vw;
-    height: 150vh;
+    min-height: 150vh;
     background-image: url(../assets/img/fondo.jpg);
     background-attachment: fixed;
+    background-position: center;
     background-repeat:no-repeat;
     background-size: cover;
-    aspect-ratio: 4/3;
+
     transition: filter 1s;
     z-index: -1;
   }
   &__title{
-    font-family:"Allura","cursive";
     margin: 0;
-    font-size: 2.5rem;
     color: $color1;
     background: $color3;
     text-align: center;
-    padding: 1rem;
     width: 100vw;
-
-    @include respond(mobile){
-      font-size: 1.75rem;
+    @include respond(xs){
+      /* font-size: 1.25rem; */
+    }
+    &__top{
+      margin: 0;
+      margin-bottom: -20px;
     }
   }
   &__container{
@@ -92,20 +116,34 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
+    margin-bottom: 5rem;
+    &__divider{
+      background-color: #ffffff77;
+      height: 2px;
+      width: 70%;
+      margin-top: 5rem;
+    }
+    &__circle{
+      border-radius: 50%;
+      background-color: $color1;
+      margin: 1.25rem;
+      aspect-ratio: 1/1;
+    }
     &__phrase{
-        font-size: 4rem;
-        font-family: 'Allura','cursive';
+        font-size: 8rem;
         color: $color1;
-        width: 50vw;
+        width: 100vw;
         text-align: center;
-        @include respond(laptop){
+        line-height: 62%;
+        font-family: 'Hilden','serif';
+        @include respond(md){
           width: 80vw;
-          font-size: min(10vw,4rem);
+          font-size: min(10vw,6rem);
         }
-        @include respond(mobile){
+        @include respond(xs){
           width: 90vw;
-          font-size: 2rem;
+          font-size: 4rem;
         }
     }
   }

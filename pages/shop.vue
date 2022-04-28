@@ -1,6 +1,6 @@
 <template>
   <section>
-    <ShopSection />
+    <ShopMain />
   </section>
 </template>
 

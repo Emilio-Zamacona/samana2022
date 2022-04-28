@@ -2,7 +2,9 @@
   <section class="main">
     <HeroMain />
     <BodyMain />
-    <div class="divisor1"></div>
+    <InfoBody />
+    <LowerBody />
+    <!-- <div class="divisor1"></div> -->
     <FrequentlyAsked />
     <ContactMain />
   </section>
@@ -19,20 +21,12 @@ export default {
   },
   computed: {
     ...mapGetters(['allProducts'])
-  },
-  async mounted () {
-    try {
-      const response = await this.$strapi.$products.find()
-      this.$store.commit('setProducts', response.data)
-    } catch (e) {
-      console.log(e)
-    }
   }
 
 }
 </script>
 <style lang="scss">
-.divisor1{
+/* .divisor1{
   height: 5vw;
   width: 100vw;
   position: relative;
@@ -47,9 +41,10 @@ export default {
   background: $color2;
   clip-path: polygon(0 0, 100% 0, 0 100%);
   margin-top: -1px;
-}
+} */
 .main{
   width: 100vw;
+  overflow-x: hidden;
 }
 
 </style>

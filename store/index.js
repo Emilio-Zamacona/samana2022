@@ -1,4 +1,5 @@
 export const state = () => ({
+  winWidth: 0,
   allProducts: [],
   featuredProducts: [],
   cartItems: []
@@ -25,10 +26,14 @@ export const actions = {
   },
   async deleteCartItem ({ commit }, id) {
     await commit('removeCartItem', id)
+  },
+  winWidthChange (context) {
+    context.commit('winWidthChange')
   }
 }
 
 export const mutations = {
+  winWidthChange: state => (state.winWidth = window.innerWidth),
   setProducts: (state, products) => (state.allProducts = products),
   setFeaturedProducts: (state, products) => (state.featuredProducts = products),
   setCartItem: (state, item) => state.cartItems.push(item),
