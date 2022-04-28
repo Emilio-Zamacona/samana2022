@@ -22,7 +22,7 @@
         <img src="../assets/img/whatsapp.png" alt="whatsapp logo">
       </div>
       <div class="lower-body__social">
-        <img src="../assets/img/instagram.png" alt="instagram logo">
+        <img src="../assets/img/ig.png" alt="instagram logo">
       </div>
     </div>
     <div class="--flex" style="width: 100%; color: red !important;">
